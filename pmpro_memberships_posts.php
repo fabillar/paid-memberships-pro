@@ -13,12 +13,18 @@ function pmpro_memberships_posts($level_id) {
 	
 	  	// IF YES, POST IDs ARE FOUND...
 		foreach($pmproPost as $post) {
-		  // MODIFY OUTPUT AS DESIRED...
-			echo  "&bull; <a href='" . get_the_permalink($post->page_id) . "'>" . get_the_title($post->page_id) . "</a><br>";
+
+		  	// MAKE SURE POSTS ARE PUBLISHED...
+			if (get_post_status($post->page_id) == 'publish') {
+
+				// MODIFY OUTPUT AS DESIRED...
+				echo  "&bull; Course : <a href='" . get_the_permalink($post->page_id) . "'>" . get_the_title($post->page_id) . "</a><br>";
+				
+			}
 		}
 		
 	} else {
 	  	// IF NO POST IDs WERE FOUND (NO POSTS ASSOCIATED TO THIS LEVEL)...
-		echo "This Membership Level is currently not associated with any available posts.";
+		echo "<br>This Membership Level is currently not associated with any available courses.";
 	}
 }
