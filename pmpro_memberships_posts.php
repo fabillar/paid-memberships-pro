@@ -3,7 +3,7 @@
 
 function pmpro_memberships_posts($level_id) {
 	global $wpdb;
-	$pmpro_memberships_pages = $wpdb->prefix .'pmpro_memberhips_pages';
+	$pmpro_memberships_pages = $wpdb->prefix .'pmpro_memberships_pages';
 
 	$sqlQuery = $wpdb->prepare("SELECT page_id FROM {$pmpro_memberships_pages} WHERE membership_id = %d", $level_id);
 	$pmproPost = $wpdb->get_results($sqlQuery);
