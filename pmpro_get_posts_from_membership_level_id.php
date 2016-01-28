@@ -7,7 +7,7 @@ function pmpro_memberships_posts($level_id) {
 	if($level_id) {
 		global $wpdb;
 		$pmpro_memberships_pages = $wpdb->prefix .'pmpro_memberships_pages';
-		$disallowed_posts = array("trash", "inherit", "draft", "auto-draft"); // POSTS NOW TO SHOW
+		$disallowed_posts = array("trash", "inherit", "draft", "auto-draft"); // POSTS NOT TO SHOW
 
 		$sqlQuery = $wpdb->prepare("SELECT page_id FROM {$pmpro_memberships_pages} WHERE membership_id = %d", $level_id);
 		$pmproPost = $wpdb->get_results($sqlQuery);
